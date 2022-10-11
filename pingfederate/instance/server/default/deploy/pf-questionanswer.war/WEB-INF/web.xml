@@ -1,0 +1,40 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Question and Answer Administration</display-name>
+  <servlet>
+  	<servlet-name>QuestionAnswerAdministration</servlet-name>
+  	<display-name>QuestionAnswerAdministration</display-name>
+  	<description></description>
+  	<servlet-class>com.pingidentity.clientservices.product.administration.questionanswer.auth.AuthenticateUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionAnswerAdministration</servlet-name>
+  	<url-pattern>/QuestionAnswerAdministration</url-pattern>
+  </servlet-mapping>
+  <session-config>
+  	<session-timeout>120</session-timeout>
+  </session-config>
+  <error-page>
+  	<error-code>401</error-code>
+    <location>/error.jsp</location>
+  </error-page>
+  <error-page>
+	<error-code>403</error-code>
+	<location>/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error.jsp</location>
+  </error-page>
+  <error-page>
+	<error-code>500</error-code>
+	<location>/error.jsp</location>
+  </error-page>
+  <error-page>
+	<error-code>503</error-code>
+	<location>/error.jsp</location>
+  </error-page>
+</web-app>

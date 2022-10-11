@@ -4225,8 +4225,17 @@ body .button-container .social-media.GitHub, body .button-container .social-medi
 body .button-container .social-media.Google, body .button-container .social-media.google {
   background-image: url("../images/logo-google.png");
 }
+body .button-container .social-media.instagram, body .button-container .social-media.Instagram {
+  background-image: url("../images/logo-instagram.png");
+}
 body .button-container .social-media.LinkedIn, body .button-container .social-media.linkedIn, body .button-container .social-media.linkedin {
   background-image: url("../images/logo-linkedin.png");
+}
+body .button-container .social-media.microsoft, body .button-container .social-media.Microsoft {
+  background-image: url("../images/logo-microsoft.png");
+}
+body .button-container .social-media.paypal, body .button-container .social-media.Paypal {
+  background-image: url("../images/logo-paypal.png");
 }
 body .button-container .social-media.Twitter, body .button-container .social-media.twitter {
   background-image: url("../images/logo-twitter.png");
@@ -4250,6 +4259,9 @@ body .button-container .social-media.SecurityKey, body .button-container .social
   background-image: url("../images/icon-securitykey.png");
   background-position: left 10px center;
   background-size: 25px auto;
+}
+body .button-container .social-media.yahoo, body .button-container .social-media.Yahoo {
+  background-image: url("../images/logo-yahoo.png");
 }
 body.mobile .ping-signin .remember-username,
 body.mobile .ping-signin .my-computer {
@@ -5185,6 +5197,7 @@ ul.no-bullets li:before {
   transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   overflow: hidden;
   box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .ping-section {
@@ -6191,17 +6204,21 @@ ul.no-bullets li:before {
   }
 }
 
+.password-container{
+  width: 400px;
+  position: relative;
+}
+.password-container input[type="password"],
+.password-container input[type="text"]{
+  width: 100%;
+  padding: 12px 36px 12px 12px;
+  box-sizing: border-box;
+}
+.fa-eye{
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  cursor: pointer;
+  color: black;
+}
 /*# sourceMappingURL=main.css.map */
-
-.ping-password-button {
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    /*optional*/
-    font-family: arial, sans-serif;
-    /*input has OS specific font-family*/
-    color: #3ea0d1;
-    text-decoration: underline;
-    vertical-align: text-bottom;
-    cursor: pointer;
-  }

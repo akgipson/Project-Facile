@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+#*
+The server renders this HTML page in an end-user's browser when an
+end-user must choose from several security domains. Based on the
+selection, the server redirects the end-user's browser to the
+appropriate adapter instance for authentication.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it may interfere with expected server behavior.
+*#
+
+<!-- template name: question.answer.form.template.html -->
+
+#set( $messageKeyPrefix = "question.answer.form.template." )
+
+<html lang="$locale.getLanguage()" dir="ltr">
+<head>
+    <title>Question & Answer</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <base href="$PingFedBaseURL"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" media="all" type="text/css" href="assets/css/main.css" />
+    <script type="text/javascript">
+    function postOnReturn(e) {
+        var keycode;
+        if (window.event) keycode = window.event.keyCode;
+        else if (e) keycode = e.which;
+        else return true;
+
+        if (keycode == 13) {
+            document.forms[0].submit();
+            return false;
+        } else {
+            return true;
+        }
+    }
+    </script>
+</head>
+#if ($autoSubmitForm)
+	<body onload="javascript:document.forms[0].submit();">
+#else
+	<body>
+#end
+    <div class="ping-container">
+        <div class="ping-header">
+            Question & Answer
+        </div><!-- .ping-header -->
+        <div class="ping-body-container">
+			<form method="POST" action="$action" autocomplete="off">
+				#if ($autoSubmitForm)
+    				<noscript><font color="red"><strong>Note:</strong> Since your browser does not support JavaScript, please press the Continue button once to proceed.</font><br /><br /></noscript>
+				#end
+                <div class="firstcut">
+                    <div class="ping-messages">                        
+                        Please answer the question below.  
+                        <br /><br /> 
+                        $question
+                    </div>
+                    <center>
+                    <div class="ping-messages">                                       
+	                    #if($errorMessage)
+	                        <div class="ping-error">$errorMessage</div>	                        
+	                    #end
+                    </div>	
+                    </center>
+	                <div class="ping-input-label">
+	                    Your answer (case and any punctuation matter!):
+	                </div>
+	                <div class="ping-input-container">
+	                    <input type="password" name="answer" size="35" onKeyPress="return postOnReturn(event)" />
+	                </div>
+	                <div class="hidden-fields" style="display:none;">
+	                    <input type="hidden" name="username" value="$username" /> 
+	                    <input type="hidden" name="question" value="$question" />
+	                    <input type="hidden" name="answerId" value="$answerId" />
+	                    <input type="hidden" name="formSubmitted" value="yes" />
+	                </div>
+	                <div class="ping-buttons">
+	                    <input type="submit" name="$ok" class="ping-button normal" value="Submit"/>
+	                </div>
+                </div>
+            </form>
+            #if ($showQASiteUrl == "true")
+            	<br />
+            	<a href="$qaSiteUrl" target="_blank" />Change My Security Questions/Answers</a>
+            #end
+        </div><!-- .ping-body-container -->
+        <div class="ping-footer-container">
+            <div class="ping-footer">
+                <div class="ping-credits">
+                    <a href="http://www.pingidentity.com">PingIdentity</a>
+                </div>
+            </div> <!-- .ping-footer -->
+        </div> <!-- .ping-footer-container -->
+    </div><!-- .ping-container -->
+</body>
+</html>
